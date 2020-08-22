@@ -1,4 +1,4 @@
-package sample;
+package team.barcolli;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Main extends Application {
+public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{

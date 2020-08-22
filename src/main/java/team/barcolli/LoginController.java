@@ -1,4 +1,4 @@
-package sample;
+package team.barcolli;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,13 +25,12 @@ public class LoginController implements Initializable {
     private TextField PasswordField;
 
 
-    public void loginButtonAction(ActionEvent event){
+    public void loginButtonAction(ActionEvent event) {
 
-        if (UsernameField.getText().isBlank()==false && PasswordField.getText().isBlank()==false) {
+        if (!UsernameField.getText().isBlank() && !PasswordField.getText().isBlank()) {
             validateLogin();
             loginMessageLabel.setText("Iniciando sesion");
-        }
-        else{
+        } else {
             loginMessageLabel.setText("Porfavor complete los campos");
         }
 
@@ -42,19 +41,19 @@ public class LoginController implements Initializable {
 
     }
 
-    public void validateLogin(){
-        DatabaseConnection connectNow= new DatabaseConnection();
+    public void validateLogin() {
+        DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
-        String verifyLogin = "" + UsernameField.getText() + "" + PasswordField.getText() +"'";
+        String verifyLogin = "select" + UsernameField.getText() + "" + PasswordField.getText() +"'";
 
-        try{
+        try {
 
-            Statement statement= connectDb.createStatement();
+            Statement statement = connectDb.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
 
-            while(queryResult.next()){
-                if(queryResult.getInt(1)==1){
+            while(queryResult.next()) {
+                if(queryResult.getInt(1) == 1) {
                     loginMessageLabel.setText("VAMOOOOOOSS QUE FUNCIONA!!!");
                 } else {
                     loginMessageLabel.setText("Login invalido,volve a intentarlo");
