@@ -1,5 +1,6 @@
 package team.barcolli;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -7,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
-
 
 import java.net.URL;
 import java.sql.Connection;
@@ -24,22 +24,25 @@ public class LoginController implements Initializable {
     private TextField UsernameField;
     @FXML
     private TextField PasswordField;
+    @FXML
+    private Button ok;
 
 
-    public void loginButtonAction(ActionEvent event) {
 
-        if (!UsernameField.getText().isBlank() && !PasswordField.getText().isBlank()) {
-            validateLogin();
-            loginMessageLabel.setText("Iniciando sesion");
-        } else {
-            loginMessageLabel.setText("Porfavor complete los campos");
-        }
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ok.setOnAction(new EventHandler<ActionEvent>() {
+             public void handle(ActionEvent e) {
+                 if (!UsernameField.getText().isBlank() && !PasswordField.getText().isBlank()) {
+                     loginMessageLabel.setText("Iniciando sesion");
+                     validateLogin();
+                 } else {
+                     loginMessageLabel.setText("Porfavor complete los campos");
+                 }
 
+            }
+        });
     }
 
     public static final String getUser = "select * from users where username = ?";

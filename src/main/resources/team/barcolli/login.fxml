@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="317.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="317.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.barcolli.LoginController">
    <top>
       <Label text="Login" BorderPane.alignment="CENTER">
          <font>
@@ -33,7 +33,7 @@
    <bottom>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="201.0" layoutY="130.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="102.0" text="OK" />
+            <Button fx:id="ok" layoutX="201.0" layoutY="130.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="102.0" text="OK" />
             <Label fx:id="loginMessageLabel" layoutX="30.0" layoutY="71.0" prefHeight="17.0" prefWidth="207.0" textFill="RED">
                <font>
                   <Font size="14.0" />
