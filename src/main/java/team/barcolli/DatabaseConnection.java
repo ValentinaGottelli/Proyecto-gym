@@ -6,15 +6,11 @@ import java.sql.DriverManager;
 public class DatabaseConnection {
     public Connection databaseLink;
 
-    public Connection getConnection(){
-        String databaseName = "nombre de la base de datos aca";
-        String databaseUser = "demo";
-        String databasePassword = "putyourpassword";
-        String url = "jdbc:mysql://localhost/" + databaseName;
-
+    public Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            databaseLink = DriverManager.getConnection(url, databaseUser, databasePassword);
+            databaseLink = DriverManager.getConnection("jdbc:mysql://localhost/feedback?"
+                + "user=root");
         } catch(Exception e){
             e.printStackTrace();
             e.getCause();
