@@ -9,8 +9,7 @@ public class DatabaseConnection {
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            databaseLink = DriverManager.getConnection("jdbc:mysql://localhost/feedback?"
-                + "user=root");
+            databaseLink = DriverManager.getConnection("jdbc:mysql://localhost/gym?user=root");
         } catch(Exception e){
             e.printStackTrace();
             e.getCause();

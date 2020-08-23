@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -41,23 +42,20 @@ public class LoginController implements Initializable {
 
     }
 
+    public static final String getUser = "select * from users where username = ?";
     public void validateLogin() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
-        String verifyLogin = "select" + UsernameField.getText() + "" + PasswordField.getText() +"'";
-
         try {
+            PreparedStatement stmt = connectDb.prepareStatement(getUser);
+            stmt.setString(1, UsernameField.getText());
+            ResultSet queryResult = stmt.executeQuery();
 
-            Statement statement = connectDb.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
-
-            while(queryResult.next()) {
-                if(queryResult.getInt(1) == 1) {
-                    loginMessageLabel.setText("VAMOOOOOOSS QUE FUNCIONA!!!");
-                } else {
-                    loginMessageLabel.setText("Login invalido,volve a intentarlo");
-                }
+            if(queryResult.next() && queryResult.getString(2).equals(PasswordField.getText())) {
+                loginMessageLabel.setText("VAMOOOOOOSS QUE FUNCIONA!!!");
+            } else {
+                loginMessageLabel.setText("Login invalido,volve a intentarlo");
             }
         }
         catch(Exception e){
