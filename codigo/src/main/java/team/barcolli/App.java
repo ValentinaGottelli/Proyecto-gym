@@ -9,32 +9,11 @@ import javafx.stage.StageStyle;
 
 public class App extends Application {
 
-   /* @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        primaryStage.setTitle("Login");
-        primaryStage.setScene(new Scene(root, 350, 500));
-        primaryStage.show();
-    }
-*/
-   private double x, y;
-
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-
-        //we gonna drag the frame
-        root.setOnMousePressed(event -> {
-            x = event.getSceneX();
-            y = event.getSceneY();
-        });
-
-        root.setOnMouseDragged(event -> {
-            primaryStage.setX(event.getScreenX() - x);
-            primaryStage.setY(event.getScreenY() - y);
-        });
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));
+        primaryStage.setTitle("Login");
+        primaryStage.setScene(new Scene(root, 751, 550));
         primaryStage.show();
     }
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.barcolli.LoginController">
+   <children>
+      <ImageView fitHeight="556.0" fitWidth="789.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@fotos/logofondo.jpeg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="130.0" layoutY="115.0" prefHeight="321.0" prefWidth="491.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="96.0" layoutX="213.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/Logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="178.0" layoutY="89.0" prefHeight="34.0" prefWidth="145.0" text="Welcome back!">
+               <font>
+                  <Font name="Microsoft New Tai Lue" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="153.0" prefHeight="19.0" prefWidth="95.0" text="Username">
+               <font>
+                  <Font name="Microsoft New Tai Lue Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="UsernameField" alignment="TOP_LEFT" layoutX="150.0" layoutY="151.0" prefHeight="27.0" prefWidth="229.0" style="-fx-border-color: #1ad175; -fx-border-radius: 8; -fx-border-insets: 0;" />
+            <Label layoutX="69.0" layoutY="205.0" prefHeight="19.0" prefWidth="95.0" text="Password">
+               <font>
+                  <Font name="Microsoft New Tai Lue Bold" size="15.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="PasswordField" layoutX="150.0" layoutY="203.0" prefHeight="27.0" prefWidth="229.0" style="-fx-border-color: #1ad175; -fx-border-radius: 8; -fx-border-insets: 0;" />
+            <Label fx:id="loginMessageLabel" layoutX="69.0" layoutY="241.0" prefHeight="28.0" prefWidth="218.0" textFill="#1ad175">
+               <font>
+                  <Font name="Microsoft New Tai Lue Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="ok" layoutX="131.0" layoutY="269.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="229.0" style="-fx-background-color: #1ad175;" text="Sing in" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft New Tai Lue Bold" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
