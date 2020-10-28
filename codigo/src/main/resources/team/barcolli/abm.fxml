@@ -16,12 +16,12 @@
                         <Font name="Microsoft Tai Le Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" text="Users">
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Users">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" text="Roles">
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Roles">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
@@ -31,17 +31,17 @@
                         <Font name="Microsoft Tai Le Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="177.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" text="General">
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="177.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="General">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" text="Users">
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Users">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" text="Visitors">
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Visitors">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
@@ -51,12 +51,17 @@
                         <Font name="Microsoft Tai Le Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" text="Settings">
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Settings">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" text="Log out">
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Log out">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Register User">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
