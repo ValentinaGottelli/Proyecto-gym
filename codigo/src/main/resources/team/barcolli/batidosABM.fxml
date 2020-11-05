@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="789.0" style="-fx-background-color: #1ad175;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="12.0" layoutY="38.0" prefHeight="504.0" prefWidth="767.0" style="-fx-background-color: #ffffff;">
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="33.0" prefHeight="29.0" prefWidth="159.0" text="Administration">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Users">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Roles">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="14.0" layoutY="178.0" prefHeight="29.0" prefWidth="159.0" text="Statics">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="General">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" layoutX="18.0" layoutY="237.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Users">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Visitors">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="10.0" layoutY="297.0" prefHeight="29.0" prefWidth="159.0" text="Profile">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Settings">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" layoutX="18.0" layoutY="356.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Log out">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Register User">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="148.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Colaciones y bebidas">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label id="TotalUsers" layoutX="156.0" layoutY="33.0" prefHeight="29.0" prefWidth="144.0">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label id="newUsers" layoutX="414.0" layoutY="33.0" prefHeight="29.0" prefWidth="149.0">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="15.0" />
+                     </font>
+                  </Label>
+                  <TableView layoutX="35.0" layoutY="152.0" prefHeight="310.0" prefWidth="499.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="ID" />
+                      <TableColumn prefWidth="107.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Name" />
+                        <TableColumn prefWidth="101.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Descripcion" />
+                        <TableColumn prefWidth="106.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Tipo de comida" />
+                        <TableColumn prefWidth="109.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Action" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="35.0" layoutY="62.0" prefHeight="29.0" prefWidth="159.0" text="Comidas">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <AnchorPane prefHeight="38.0" prefWidth="789.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Label layoutX="8.0" prefHeight="40.0" prefWidth="95.0" text="Admin">
+               <font>
+                  <Font name="Microsoft Tai Le Bold" size="28.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="40.0" fitWidth="62.0" layoutX="735.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fotos/Logo.png" />
+               </image>
+            </ImageView>
+            <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="658.0" layoutY="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #ffff;" text="Home" textAlignment="CENTER">
+               <font>
+                  <Font name="Microsoft Tai Le" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
