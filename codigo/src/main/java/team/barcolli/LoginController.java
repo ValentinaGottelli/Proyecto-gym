@@ -2,13 +2,17 @@ package team.barcolli;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,6 +30,9 @@ public class LoginController implements Initializable {
     private TextField PasswordField;
     @FXML
     private Button ok;
+    @FXML
+    private Button registerButton;
+
 
 
 
@@ -45,8 +52,16 @@ public class LoginController implements Initializable {
         });
     }
 
+    public void openRegisterAdmin(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));
+        primaryStage.setTitle("Login");
+        primaryStage.setScene(new Scene(root, 751, 550));
+        primaryStage.show();
+    }
+
     public static final String getUser = "select * from users where username = ?";
     public void validateLogin() {
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
 
@@ -57,6 +72,7 @@ public class LoginController implements Initializable {
 
             if(queryResult.next() && queryResult.getString(2).equals(PasswordField.getText())) {
                 loginMessageLabel.setText("VAMOOOOOOSS QUE FUNCIONA!!!");
+
             } else {
                 loginMessageLabel.setText("Login invalido,volve a intentarlo");
             }

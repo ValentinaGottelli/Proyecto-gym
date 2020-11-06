@@ -61,15 +61,15 @@
                         <Font name="Microsoft Tai Le" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="nombre" layoutX="209.0" layoutY="36.0" prefHeight="25.0" prefWidth="237.0" />
+                  <TextField fx:id="nombrePlan" layoutX="209.0" layoutY="36.0" prefHeight="25.0" prefWidth="237.0" />
                   <Label layoutX="75.0" layoutY="69.0" prefHeight="24.0" prefWidth="117.0" text="Descripcion D/M">
                      <font>
                         <Font name="Microsoft Tai Le" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="apellido" layoutX="209.0" layoutY="69.0" prefHeight="25.0" prefWidth="237.0" />
-                  <TextField fx:id="edad" layoutX="209.0" layoutY="102.0" prefHeight="25.0" prefWidth="237.0" />
-                  <TextField fx:id="sexo" layoutX="209.0" layoutY="136.0" prefHeight="25.0" prefWidth="237.0" />
+                  <TextField fx:id="DM" layoutX="209.0" layoutY="69.0" prefHeight="25.0" prefWidth="237.0" />
+                  <TextField fx:id="DescAC" layoutX="209.0" layoutY="102.0" prefHeight="25.0" prefWidth="237.0" />
+                  <TextField fx:id="compAC" layoutX="209.0" layoutY="136.0" prefHeight="25.0" prefWidth="237.0" />
                   <Label layoutX="75.0" layoutY="102.0" prefHeight="24.0" prefWidth="111.0" text="Descripcion A/C">
                      <font>
                         <Font name="Microsoft Tai Le" size="15.0" />
@@ -85,12 +85,17 @@
                         <Font name="Microsoft Tai Le" size="15.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="disciplina" layoutX="209.0" layoutY="170.0" prefHeight="25.0" prefWidth="237.0" />
-                  <Button fx:id="registerButton" layoutX="169.0" layoutY="233.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="28.0" prefWidth="229.0" style="-fx-background-color: #1ad175;" text="Registrar" textFill="WHITE">
+                  <TextField fx:id="Imagen" layoutX="209.0" layoutY="170.0" prefHeight="25.0" prefWidth="237.0" />
+                  <Button fx:id="registerButton" layoutX="169.0" layoutY="252.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="28.0" prefWidth="229.0" style="-fx-background-color: #1ad175;" text="Registrar" textFill="WHITE">
                      <font>
                         <Font name="Microsoft New Tai Lue Bold" size="17.0" />
                      </font>
                   </Button>
+                  <Label fx:id="labelPlan" layoutX="110.0" layoutY="324.0" prefHeight="24.0" prefWidth="347.0">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="17.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </center>

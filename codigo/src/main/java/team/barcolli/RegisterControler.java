@@ -59,11 +59,6 @@ public class RegisterControler implements Initializable {
         });
     }
 
-
-
-
-
-
     public void registerUser(){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
