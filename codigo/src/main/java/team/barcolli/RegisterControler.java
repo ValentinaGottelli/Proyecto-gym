@@ -2,7 +2,11 @@ package team.barcolli;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,11 +16,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class RegisterControler implements Initializable {
@@ -41,7 +43,8 @@ public class RegisterControler implements Initializable {
     private TextField dni;
     @FXML
     private Button registerButton;
-
+    @FXML
+    private Button usersABM;
 
 
     public void registerButtonOnAction(ActionEvent event){
@@ -51,7 +54,12 @@ public class RegisterControler implements Initializable {
                         && !apellido.getText().isBlank() && !edad.getText().isBlank() && !sexo.getText().isBlank()
                         && !disciplina.getText().isBlank() && !dni.getText().isBlank()) {
                     registerUser();
-                } else {
+                } else if(!username.getText().isBlank() || !password.getText().isBlank() || !nombre.getText().isBlank()
+                        && !apellido.getText().isBlank() || !edad.getText().isBlank() || !sexo.getText().isBlank()
+                        && !disciplina.getText().isBlank() || !dni.getText().isBlank()) {
+                    userRegisterLabel.setText("Porfavor complete los campos");
+                }
+                else{
                     userRegisterLabel.setText("Porfavor complete los campos");
                 }
 
@@ -59,6 +67,59 @@ public class RegisterControler implements Initializable {
         });
     }
 
+    public void changeScene(ActionEvent event) throws IOException {
+        Parent abmview = FXMLLoader.load(getClass().getResource("abm.fxml"));
+        Scene abmscene= new Scene(abmview);
+        usersABM.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent actionEvent) {
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                window.setScene(abmscene);
+                window.show();
+            }
+        });
+
+
+
+    }
+
+    public static final String getUser = "select idusers from users where username = ?";
+    public boolean userExists(String username) {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+
+        try {
+            PreparedStatement stmt = connectDb.prepareStatement(getUser);
+            stmt.setString(1, username);
+            return stmt.execute();
+        } catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+        return false;
+    }
+
+    public int getUserId(String username) {
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDb = connectNow.getConnection();
+        try {
+            PreparedStatement stmt = connectDb.prepareStatement(getUser);
+            stmt.setString(1, username);
+            ResultSet resultSet = stmt.executeQuery();
+            if(resultSet.next()) {
+                return resultSet.getInt(1);
+            } else {
+                return -1;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+        return -1;
+    }
+
+    private static final String INSERTUSER = "insert into users values (null, ?, ?, 0)";
+    private static final String INSERTCLIENTE = "insert into clientes values (null, ?, ?, ?, ?, ?, ?, ?, null)";
     public void registerUser(){
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
@@ -72,13 +133,25 @@ public class RegisterControler implements Initializable {
         String disc=disciplina.getText();
         String dn=dni.getText();
 
-        String insertFields= "INSERT INTO user_account(firstname,lastname,user,pass,sex,age,disc,dn) VALUES ('";
-        String insertValues= firstname + "','" + lastname +"','" + user +"','" + pass +"','" + sex +"','" + age +"','" + disc +"','" + dn + "')" ;
-        String insertToRegister= insertFields + insertValues;
+        if(getUserId(user) != -1) {
+            userRegisterLabel.setText("Ese usuario ya existe");
+            return;
+        }
 
         try{
-            Statement statement = connectDb.createStatement();
-            statement.executeUpdate(insertToRegister);
+            PreparedStatement userStmt = connectDb.prepareStatement(INSERTUSER);
+            userStmt.setString(1, user);
+            userStmt.setString(2, pass);
+            userStmt.executeUpdate();
+            PreparedStatement clientStmt = connectDb.prepareStatement(INSERTCLIENTE);
+            clientStmt.setString(1,firstname);
+            clientStmt.setString(2,lastname);
+            clientStmt.setString(3,age);
+            clientStmt.setString(4,sex);
+            clientStmt.setString(5,disc);
+            clientStmt.setString(6,dn);
+            clientStmt.setInt(7, getUserId(user));
+            clientStmt.executeUpdate();
             userRegisterLabel.setText("Usuario registrado con exito");
         }catch(Exception e){
             e.printStackTrace();

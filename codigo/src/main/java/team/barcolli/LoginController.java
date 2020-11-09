@@ -53,8 +53,21 @@ public class LoginController implements Initializable {
     }
 
     public void openRegisterAdmin(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));
-        primaryStage.setTitle("Login");
+        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
+        primaryStage.setTitle("Administrador");
+        primaryStage.setScene(new Scene(root, 751, 550));
+        primaryStage.show();
+    }
+    public void openProfile(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+        primaryStage.setTitle("Perfil");
+        primaryStage.setScene(new Scene(root, 751, 550));
+        primaryStage.show();
+    }
+
+    public void openCrearPlan(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("crearPlan.fxml"));
+        primaryStage.setTitle("Crear Plan");
         primaryStage.setScene(new Scene(root, 751, 550));
         primaryStage.show();
     }
@@ -70,9 +83,18 @@ public class LoginController implements Initializable {
             stmt.setString(1, UsernameField.getText());
             ResultSet queryResult = stmt.executeQuery();
 
-            if(queryResult.next() && queryResult.getString(2).equals(PasswordField.getText())) {
+            if(queryResult.next() && queryResult.getString(3).equals(PasswordField.getText())) {
                 loginMessageLabel.setText("VAMOOOOOOSS QUE FUNCIONA!!!");
-
+                if(queryResult.getInt(1) == 1) {
+                    openRegisterAdmin(App.primaryStage);
+                    return;
+                } else if (queryResult.getBoolean(4)) {
+                    //es profesional
+                    openCrearPlan(App.primaryStage);
+                    return;
+                } else {
+                    openProfile(App.primaryStage);
+                }
             } else {
                 loginMessageLabel.setText("Login invalido,volve a intentarlo");
             }
@@ -83,4 +105,7 @@ public class LoginController implements Initializable {
         }
 
     }
+
+
+
 }

@@ -9,9 +9,11 @@ import javafx.stage.StageStyle;
 
 public class App extends Application {
 
+    protected static Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));
+        App.primaryStage = primaryStage;
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root, 751, 550));
         primaryStage.show();

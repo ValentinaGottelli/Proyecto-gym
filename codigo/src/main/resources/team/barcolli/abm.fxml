@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="789.0" style="-fx-background-color: #1ad175;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="789.0" style="-fx-background-color: #1ad175;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.barcolli.abmUsuariosAdmin">
    <children>
       <BorderPane layoutX="12.0" layoutY="38.0" prefHeight="504.0" prefWidth="767.0" style="-fx-background-color: #ffffff;">
          <left>
@@ -61,7 +61,7 @@
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Register User">
+                  <Button fx:id="registerUser" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#changeScene" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Register User">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
