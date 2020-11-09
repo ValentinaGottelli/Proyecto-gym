@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="789.0" style="-fx-background-color: #1ad175;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.barcolli.abmUsuariosAdmin">
    <children>
@@ -56,7 +63,7 @@
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Log out">
+                  <Button fx:id="logout" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Log out">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
@@ -72,17 +79,12 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="35.0" layoutY="33.0" prefHeight="29.0" prefWidth="159.0" text="Total Users:">
+                  <Label layoutX="40.0" layoutY="30.0" prefHeight="29.0" prefWidth="159.0" text="Total Users:">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Label layoutX="302.0" layoutY="33.0" prefHeight="29.0" prefWidth="159.0" text="New Users:">
-                     <font>
-                        <Font name="Microsoft Tai Le Bold" size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="35.0" layoutY="97.0" prefHeight="39.0" prefWidth="200.0" text="Pending Users">
+                  <Label layoutX="40.0" layoutY="62.0" prefHeight="39.0" prefWidth="200.0" text="Users">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="27.0" />
                      </font>
@@ -97,15 +99,25 @@
                         <Font name="Microsoft Tai Le" size="15.0" />
                      </font>
                   </Label>
-                  <TableView layoutX="35.0" layoutY="152.0" prefHeight="310.0" prefWidth="499.0">
+                  <TableView fx:id="table" layoutX="40.0" layoutY="101.0" prefHeight="310.0" prefWidth="291.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="ID" />
-                      <TableColumn prefWidth="107.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Name" />
-                        <TableColumn prefWidth="101.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="E-mail" />
-                        <TableColumn prefWidth="106.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Role" />
-                        <TableColumn prefWidth="109.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Action" />
+                      <TableColumn fx:id="idtable" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="ID" />
+                      <TableColumn fx:id="nametable" prefWidth="107.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Name" />
+                        <TableColumn fx:id="roletable" prefWidth="106.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Role" />
                     </columns>
                   </TableView>
+                  <TextField fx:id="idUser" layoutX="40.0" layoutY="446.0" />
+                  <Label layoutX="40.0" layoutY="423.0" prefHeight="17.0" prefWidth="75.0" text="ID de usuario" />
+                  <Button layoutX="204.0" layoutY="445.0" mnemonicParsing="false" onAction="#OnDeleteUser" style="-fx-background-color: #1ad175;" text="Eliminar" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <CheckBox layoutX="284.0" layoutY="450.0" mnemonicParsing="false" text="Profesional">
+                     <font>
+                        <Font name="Microsoft Tai Le" size="12.0" />
+                     </font>
+                  </CheckBox>
                </children>
             </AnchorPane>
          </center>

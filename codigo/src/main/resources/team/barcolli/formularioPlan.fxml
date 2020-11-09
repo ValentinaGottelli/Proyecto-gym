@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="519.0" prefWidth="341.0">
+         <top>
+            <AnchorPane prefHeight="53.0" prefWidth="313.0" style="-fx-background-color: #1ad175;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="9.0" prefHeight="17.0" prefWidth="107.0" text="Datos">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="31.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="217.0" prefWidth="341.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="21.0" layoutY="33.0" text="Peso Actual">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="21.0" layoutY="54.0" />
+                  <Label layoutX="21.0" layoutY="91.0" text="Cintura Actual">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="21.0" layoutY="112.0" />
+                  <Label layoutX="21.0" layoutY="151.0" text="Objetivos">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="21.0" layoutY="172.0" />
+                  <TextField layoutX="21.0" layoutY="233.0" />
+                  <Label layoutX="21.0" layoutY="212.0" text="Duracion">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="134.0" layoutY="298.0" mnemonicParsing="false" style="-fx-background-color: #1ad175;" text="Comenzar" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft Tai Le Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
