@@ -41,6 +41,8 @@ public class abmUsuariosAdmin implements Initializable{
     TextField idUser;
     @FXML
     CheckBox professionalToggle;
+    @FXML
+    Button abmplanes;
 
     private ObservableList<Usuario> list = FXCollections.observableArrayList();
 
@@ -68,6 +70,20 @@ public class abmUsuariosAdmin implements Initializable{
             }
         });
     }
+
+    public void abmplanes(ActionEvent event) throws IOException {
+        Parent abmview = FXMLLoader.load(getClass().getResource("batidosABM.fxml"));
+        Scene abmscene = new Scene(abmview);
+        abmplanes.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent actionEvent) {
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(abmscene);
+                window.show();
+            }
+        });
+    }
+
     public void LogOut(ActionEvent event) throws IOException {
         Parent abmview = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));
         Scene abmscene = new Scene(abmview);

@@ -23,7 +23,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class crearPlanController {
+public class crearPlanController implements Initializable{
 
     @FXML
     private TextField nombrePlan;
@@ -39,6 +39,8 @@ public class crearPlanController {
     private Label labelPlan;
     @FXML
     private Button registerButton;
+    @FXML
+    private Button logout;
 
     public void registerButtonOnAction(ActionEvent event){
         registerButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -127,5 +129,21 @@ public class crearPlanController {
 
 
     }
+    public void LogOut(ActionEvent event) throws IOException {
+        Parent abmview = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));
+        Scene abmscene = new Scene(abmview);
+        logout.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent actionEvent) {
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+                window.setScene(abmscene);
+                window.show();
+            }
+        });
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

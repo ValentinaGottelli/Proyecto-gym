@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -45,6 +46,8 @@ public class RegisterControler implements Initializable {
     private Button registerButton;
     @FXML
     private Button usersABM;
+    @FXML
+    private Button logout;
 
 
     public void registerButtonOnAction(ActionEvent event){
@@ -63,6 +66,18 @@ public class RegisterControler implements Initializable {
                     userRegisterLabel.setText("Porfavor complete los campos");
                 }
 
+            }
+        });
+    }
+    public void LogOut(ActionEvent event) throws IOException {
+        Parent abmview = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));
+        Scene abmscene = new Scene(abmview);
+        logout.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent actionEvent) {
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(abmscene);
+                window.show();
             }
         });
     }

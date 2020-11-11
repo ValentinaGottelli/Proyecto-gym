@@ -4,13 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="789.0" style="-fx-background-color: #1ad175;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="789.0" style="-fx-background-color: #1ad175;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.barcolli.BatidosABM">
    <children>
       <BorderPane layoutX="12.0" layoutY="38.0" prefHeight="504.0" prefWidth="767.0" style="-fx-background-color: #ffffff;">
          <left>
@@ -21,7 +22,7 @@
                         <Font name="Microsoft Tai Le Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Users">
+                  <Button fx:id="userabm" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" onAction="#userabm" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Users">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
@@ -61,12 +62,12 @@
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" layoutX="18.0" layoutY="356.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Log out">
+                  <Button fx:id="logout" alignment="BOTTOM_LEFT" layoutX="18.0" layoutY="356.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Log out">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Register User">
+                  <Button alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#changeScene" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #ffff;" stylesheets="@boton.css" text="Register User">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
@@ -92,12 +93,12 @@
                         <Font name="Microsoft Tai Le" size="15.0" />
                      </font>
                   </Label>
-                  <TableView layoutX="33.0" layoutY="97.0" prefHeight="310.0" prefWidth="391.0">
+                  <TableView fx:id="table" layoutX="33.0" layoutY="97.0" prefHeight="310.0" prefWidth="391.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="ID" />
-                      <TableColumn prefWidth="107.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Name" />
-                        <TableColumn prefWidth="101.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Descripcion" />
-                        <TableColumn prefWidth="106.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Tipo de comida" />
+                      <TableColumn fx:id="idtable" prefWidth="75.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="ID" />
+                      <TableColumn fx:id="nametable" prefWidth="107.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Name" />
+                        <TableColumn fx:id="destable" prefWidth="101.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Descripcion" />
+                        <TableColumn fx:id="comidatable" prefWidth="106.0" style="-fx-background-color: #ffff; -fx-border-color: #1ad175;" text="Tipo de comida" />
                     </columns>
                   </TableView>
                   <Label layoutX="35.0" layoutY="62.0" prefHeight="29.0" prefWidth="159.0" text="Comidas">
@@ -105,6 +106,17 @@
                         <Font name="Microsoft Tai Le Bold" size="21.0" />
                      </font>
                   </Label>
+                  <TextField fx:id="idComida" layoutX="33.0" layoutY="442.0" />
+                  <Label layoutX="33.0" layoutY="414.0" text="Id comida">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="eliminar" layoutX="193.0" layoutY="443.0" mnemonicParsing="false" onAction="#onDeletePlan" prefHeight="24.0" prefWidth="76.0" style="-fx-background-color: #1ad175;" text="Eliminar" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </center>
