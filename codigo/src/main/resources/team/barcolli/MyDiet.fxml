@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="789.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="789.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.barcolli.MyDietController">
    <children>
       <BorderPane prefHeight="556.0" prefWidth="789.0">
          <top>
@@ -19,22 +16,12 @@
                         <Font name="Microsoft Tai Le Bold" size="28.0" />
                      </font>
                   </Label>
-                  <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="598.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #ffff;" text="Home" textAlignment="CENTER">
+                  <Button fx:id="fav" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="576.0" layoutY="17.0" mnemonicParsing="false" onAction="#fav" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ffff;" text="Favourite" textAlignment="CENTER">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="524.0" layoutY="16.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ffff;" text="Favourite" textAlignment="CENTER">
-                     <font>
-                        <Font name="Microsoft Tai Le" size="14.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="450.0" layoutY="17.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #ffff;" text="My Diet" textAlignment="CENTER">
-                     <font>
-                        <Font name="Microsoft Tai Le" size="14.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="658.0" layoutY="17.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #ffff;" text="Profile" textAlignment="CENTER">
+                  <Button fx:id="profile" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="658.0" layoutY="17.0" mnemonicParsing="false" onAction="#profile" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #ffff;" text="Profile" textAlignment="CENTER">
                      <font>
                         <Font name="Microsoft Tai Le" size="14.0" />
                      </font>
@@ -63,7 +50,7 @@
                         <Font name="Microsoft Tai Le Bold" size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="54.0" layoutY="305.0" prefHeight="41.0" prefWidth="190.0" text="Description">
+                  <Label fx:id="currentMeal" layoutX="54.0" layoutY="305.0" prefHeight="173.0" prefWidth="190.0">
                      <font>
                         <Font name="Microsoft Tai Le" size="12.0" />
                      </font>
@@ -73,12 +60,12 @@
                         <Font name="Microsoft Tai Le Bold" size="28.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" layoutX="547.0" layoutY="305.0" prefHeight="41.0" prefWidth="190.0" text="Description" textAlignment="RIGHT">
+                  <Label fx:id="Composition" alignment="CENTER_RIGHT" layoutX="547.0" layoutY="305.0" prefHeight="172.0" prefWidth="190.0" textAlignment="RIGHT">
                      <font>
                         <Font name="Microsoft Tai Le" size="12.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="367.0" layoutY="72.0" prefHeight="41.0" prefWidth="391.0" text="Name" textFill="#1ad175">
+                  <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" layoutX="367.0" layoutY="72.0" prefHeight="41.0" prefWidth="391.0" textFill="#1ad175">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="28.0" />
                      </font>

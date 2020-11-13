@@ -85,6 +85,7 @@ public class LoginController implements Initializable {
 
             if(queryResult.next() && queryResult.getString(3).equals(PasswordField.getText())) {
                 loginMessageLabel.setText("VAMOOOOOOSS QUE FUNCIONA!!!");
+                App.userId = queryResult.getInt(1);
                 if(queryResult.getInt(1) == 1) {
                     openRegisterAdmin(App.primaryStage);
                     return;

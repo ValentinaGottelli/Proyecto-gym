@@ -10,6 +10,7 @@ import javafx.stage.StageStyle;
 public class App extends Application {
 
     protected static Stage primaryStage;
+    protected static int userId;
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));

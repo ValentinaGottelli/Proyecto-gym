@@ -67,7 +67,7 @@ public class profileController implements Initializable {
         });
     }
 
-    public static final String getUser = "select idusers from users";
+    public static final String getUser = "select username from users where idusers = ?";
 
     public String getUser(int id) {
         DatabaseConnection connectNow = new DatabaseConnection();
@@ -92,21 +92,6 @@ public class profileController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-
-        try {
-            PreparedStatement stmt = connectDb.prepareStatement(getUser);
-            ResultSet rs = stmt.executeQuery(getUser);
-
-            while (rs.next()) {
-                name.setText(rs.getString("username"));
-
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-
-        }
+        name.setText(getUser(App.userId));
     }
 }
