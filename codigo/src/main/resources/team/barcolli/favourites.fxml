@@ -37,12 +37,12 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="455.0" fitWidth="726.0" layoutX="32.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="next" layoutX="690.0" layoutY="213.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="91.0" style="-fx-background-color: #1ad175; -fx-background-radius: 100;" text="Next" textFill="WHITE">
+                  <ImageView fx:id="image" fitHeight="455.0" fitWidth="726.0" layoutX="32.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="next" layoutX="690.0" layoutY="213.0" mnemonicParsing="false" onAction="#NEXT" prefHeight="59.0" prefWidth="91.0" style="-fx-background-color: #1ad175; -fx-background-radius: 100;" text="Next" textFill="WHITE">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="12.0" />
                      </font></Button>
-                  <Button fx:id="back" layoutX="8.0" layoutY="213.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="91.0" style="-fx-background-color: #1ad175; -fx-background-radius: 100;" text="Back" textFill="WHITE">
+                  <Button fx:id="back" layoutX="8.0" layoutY="213.0" mnemonicParsing="false" onAction="#BACK" prefHeight="59.0" prefWidth="91.0" style="-fx-background-color: #1ad175; -fx-background-radius: 100;" text="Back" textFill="WHITE">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="12.0" />
                      </font></Button>

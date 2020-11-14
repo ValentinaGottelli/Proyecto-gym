@@ -6,12 +6,22 @@ public class Comidas {
     public String name;
     public String des;
     public String comida;
+    public String desac;
+    public String image;
 
     public Comidas(String id, String name, String des, String comida) {
         this.id = id;
         this.name = name;
         this.des = des;
         this.comida = comida;
+    }
+
+    public Comidas(String name, String des, String comida, String desac, String image) {
+        this.name = name;
+        this.des = des;
+        this.comida = comida;
+        this.desac = desac;
+        this.image = image;
     }
 
     public String getId() {
@@ -44,5 +54,13 @@ public class Comidas {
 
     public void setComida(String comida) {
         this.comida = comida;
+    }
+
+    public String getDesac() {
+        return desac;
+    }
+
+    public void setDesac(String desac) {
+        this.desac = desac;
     }
 }
