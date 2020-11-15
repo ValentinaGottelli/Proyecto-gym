@@ -73,38 +73,21 @@ public class FavouritesController implements Initializable {
         });
     }
 
-    public static final String GETNOMBREPLAN = "select nombre from planesalimenticios where idplan = ?";
+    public static final String SUSCRIBIRSE= "update clientes set planesalimenticios_idplanes = ? where idcliente = ? ";
+    public void Suscribirse(ActionEvent event) {
 
-    public String getNombrePLan(int id) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
+
         try {
-            PreparedStatement stmt = connectDb.prepareStatement(GETNOMBREPLAN);
-            stmt.setInt(1, id);
-            ResultSet resultSet = stmt.executeQuery();
-            if (resultSet.next()) {
-                return resultSet.getString(1);
-            } else {
-                return "";
-            }
-        } catch (Exception e) {
+            PreparedStatement userStmt = connectDb.prepareStatement(SUSCRIBIRSE);
+            userStmt.setInt(1,ids.get(id));
+            userStmt.setInt(2, App.userId);
+            userStmt.executeUpdate();
+        }catch(Exception e){
             e.printStackTrace();
             e.getCause();
         }
-        return "";
-    }
-
-    public void Suscribirse(ActionEvent event) throws IOException {
-        Parent abmview = FXMLLoader.load(getClass().getResource("formularioPlan.fxml"));
-        Scene abmscene = new Scene(abmview);
-        suscribe.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent actionEvent) {
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                window.setScene(abmscene);
-                window.show();
-            }
-        });
     }
 
     public static final String GETPLAN = "select nombre,descripciondm,descripcionac,composicionac,imagen from planesalimenticios where idplan = ?";

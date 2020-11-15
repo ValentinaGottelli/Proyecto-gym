@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +19,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MyDietController implements Initializable {
@@ -24,8 +28,6 @@ public class MyDietController implements Initializable {
     Button fav;
     @FXML
     Button profile;
-    @FXML
-    Label composition;
     @FXML
     Label name;
     @FXML
@@ -35,7 +37,11 @@ public class MyDietController implements Initializable {
     @FXML
     Button back;
     @FXML
-    Label currentMeal;
+    Label desac;
+    @FXML
+    Label desdm;
+    @FXML
+    ImageView image;
 
 
 
@@ -65,77 +71,75 @@ public class MyDietController implements Initializable {
         });
     }
 
-    public static final String GETNOMBREPLAN = "select nombre from planesalimenticios where idplan = ?";
 
-    public String getNombrePLan(int id) {
+    public static final String GETPLAN = "select planesalimenticios.nombre,planesalimenticios.descripciondm,planesalimenticios.descripcionac,planesalimenticios.composicionac,planesalimenticios.imagen, clientes.planesalimenticios_idplanes from planesalimenticios join clientes on clientes.planesalimenticios_idplanes=planesalimenticios.idplan  where planesalimenticios.idplan = ?";
+    public Comidas obtenerComida(int id) {
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         try {
-            PreparedStatement stmt = connectDb.prepareStatement(GETNOMBREPLAN);
+            PreparedStatement stmt = connectDb.prepareStatement(GETPLAN);
             stmt.setInt(1, id);
             ResultSet resultSet = stmt.executeQuery();
             if (resultSet.next()) {
-                return resultSet.getString(1);
-            } else {
-                return "";
+                return new Comidas(resultSet.getString(1), resultSet.getString(2), resultSet.getString(4), resultSet.getString(3), resultSet.getString(5));
             }
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
         }
-        return "";
+
+        return null;
     }
 
-    public static final String GETDESCRIPCION = "select descripcionac from planesalimenticios where idplan = ?";
+    public int id=0;
 
-    public String getDescripcion(int id) {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-        try {
-            PreparedStatement stmt = connectDb.prepareStatement(GETDESCRIPCION);
-            stmt.setInt(1, id);
-            ResultSet resultSet = stmt.executeQuery();
-            if (resultSet.next()) {
-                return resultSet.getString(1);
-            } else {
-                return "";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
+    public void NEXT(ActionEvent event){
+        if(id + 1 >= ids.size()) {
+            id = 0;
+        } else {
+            id++;
         }
-        return "";
+        updateComida();
     }
 
-    public static final String GETCOMPOSICION = "select composicionac from planesalimenticios where idplan = ?";
-
-    public String getComposicion(int id) {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-        try {
-            PreparedStatement stmt = connectDb.prepareStatement(GETCOMPOSICION);
-            stmt.setInt(1, id);
-            ResultSet resultSet = stmt.executeQuery();
-            if (resultSet.next()) {
-                return resultSet.getString(1);
-            } else {
-                return "";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
+    public void BACK(ActionEvent event){
+        if(id - 1 < 0) {
+            id = ids.get(ids.size() - 1);
+        } else {
+            id--;
         }
-        return "";
+        updateComida();
     }
 
+    public void updateComida() {
+        Comidas comida= obtenerComida(ids.get(id));
 
+        name.setText(comida.getName());
+        desac.setText(comida.getDesac());
+        desdm.setText(comida.getDes());
+        Composition.setText(comida.getComida());
+        image.setImage(new Image(comida.image));
+    }
+
+    ArrayList<Integer> ids = new ArrayList<>();
+
+    public static final String GETIDS = "select planesalimenticios_idplanes from clientes";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
-        name.setText(getNombrePLan(1));
-        currentMeal.setText(getDescripcion(1));
-        Composition.setText(getComposicion(1));
+        try {
+            Statement stmt = connectDb.createStatement();
+            ResultSet set = stmt.executeQuery(GETIDS);
+            while (set.next()) {
+                ids.add(set.getInt(1));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
 
+        updateComida();
     }
 }
