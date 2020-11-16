@@ -73,7 +73,7 @@ public class FavouritesController implements Initializable {
         });
     }
 
-    public static final String SUSCRIBIRSE= "update clientes set planesalimenticios_idplanes = ? where idcliente = ? ";
+    public static final String SUSCRIBIRSE= "update clientes set planesalimenticios_idplanes = ? where users_idusers = ? ";
     public void Suscribirse(ActionEvent event) {
 
         DatabaseConnection connectNow = new DatabaseConnection();

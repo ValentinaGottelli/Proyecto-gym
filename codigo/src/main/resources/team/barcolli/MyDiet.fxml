@@ -38,8 +38,6 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fx:id="image" fitHeight="455.0" fitWidth="726.0" layoutX="32.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="next" layoutX="691.0" layoutY="184.0" mnemonicParsing="false" onAction="#NEXT" prefHeight="59.0" prefWidth="91.0" style="-fx-background-color: #1ad175; -fx-background-radius: 100;" text="Next" />
-                  <Button fx:id="back" layoutX="9.0" layoutY="184.0" mnemonicParsing="false" onAction="#BACK" prefHeight="59.0" prefWidth="91.0" style="-fx-background-color: #1ad175; -fx-background-radius: 100;" text="Back" />
                   <Label layoutX="54.0" layoutY="15.0" prefHeight="41.0" prefWidth="190.0" text="Current Plan:">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="28.0" />

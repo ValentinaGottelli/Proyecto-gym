@@ -72,14 +72,14 @@ public class MyDietController implements Initializable {
     }
 
 
-    public static final String GETPLAN = "select planesalimenticios.nombre,planesalimenticios.descripciondm,planesalimenticios.descripcionac,planesalimenticios.composicionac,planesalimenticios.imagen, clientes.planesalimenticios_idplanes from planesalimenticios join clientes on clientes.planesalimenticios_idplanes=planesalimenticios.idplan  where planesalimenticios.idplan = ?";
-    public Comidas obtenerComida(int id) {
+    public static final String GETPLAN = "select planesalimenticios.nombre, planesalimenticios.descripciondm, planesalimenticios.descripcionac, planesalimenticios.composicionac, planesalimenticios.imagen, clientes.users_idusers from clientes join planesalimenticios on clientes.planesalimenticios_idplanes=planesalimenticios.idplan where clientes.users_idusers = ?";
+    public Comidas obtenerComida() {
 
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
         try {
             PreparedStatement stmt = connectDb.prepareStatement(GETPLAN);
-            stmt.setInt(1, id);
+            stmt.setInt(1, App.userId);
             ResultSet resultSet = stmt.executeQuery();
             if (resultSet.next()) {
                 return new Comidas(resultSet.getString(1), resultSet.getString(2), resultSet.getString(4), resultSet.getString(3), resultSet.getString(5));
@@ -92,28 +92,9 @@ public class MyDietController implements Initializable {
         return null;
     }
 
-    public int id=0;
-
-    public void NEXT(ActionEvent event){
-        if(id + 1 >= ids.size()) {
-            id = 0;
-        } else {
-            id++;
-        }
-        updateComida();
-    }
-
-    public void BACK(ActionEvent event){
-        if(id - 1 < 0) {
-            id = ids.get(ids.size() - 1);
-        } else {
-            id--;
-        }
-        updateComida();
-    }
 
     public void updateComida() {
-        Comidas comida= obtenerComida(ids.get(id));
+        Comidas comida= obtenerComida();
 
         name.setText(comida.getName());
         desac.setText(comida.getDesac());
@@ -122,23 +103,10 @@ public class MyDietController implements Initializable {
         image.setImage(new Image(comida.image));
     }
 
-    ArrayList<Integer> ids = new ArrayList<>();
 
     public static final String GETIDS = "select planesalimenticios_idplanes from clientes";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDb = connectNow.getConnection();
-        try {
-            Statement stmt = connectDb.createStatement();
-            ResultSet set = stmt.executeQuery(GETIDS);
-            while (set.next()) {
-                ids.add(set.getInt(1));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
 
         updateComida();
     }
