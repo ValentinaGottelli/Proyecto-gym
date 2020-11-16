@@ -55,20 +55,20 @@ public class LoginController implements Initializable {
     public void openRegisterAdmin(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
         primaryStage.setTitle("Administrador");
-        primaryStage.setScene(new Scene(root, 751, 550));
+        primaryStage.setScene(new Scene(root, 789, 556));
         primaryStage.show();
     }
     public void openProfile(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
         primaryStage.setTitle("Perfil");
-        primaryStage.setScene(new Scene(root, 751, 550));
+        primaryStage.setScene(new Scene(root, 789, 556));
         primaryStage.show();
     }
 
     public void openCrearPlan(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("crearPlan.fxml"));
         primaryStage.setTitle("Crear Plan");
-        primaryStage.setScene(new Scene(root, 751, 550));
+        primaryStage.setScene(new Scene(root, 789, 556));
         primaryStage.show();
     }
 

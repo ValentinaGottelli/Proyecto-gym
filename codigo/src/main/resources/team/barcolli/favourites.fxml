@@ -51,7 +51,7 @@
                         <Font name="Microsoft Tai Le Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Label layoutX="576.0" layoutY="38.0" text="Nombre:">
+                  <Label layoutX="576.0" layoutY="38.0" text="Nombre:" textFill="WHITE">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="18.0" />
                      </font>
@@ -61,7 +61,7 @@
                         <Font name="Microsoft Tai Le Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="134.0" layoutY="38.0" text="Composition:">
+                  <Label layoutX="134.0" layoutY="38.0" text="Composition:" textFill="WHITE">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="18.0" />
                      </font>
@@ -71,7 +71,7 @@
                         <Font name="Microsoft Tai Le Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="135.0" layoutY="223.0" text="Descripcion:">
+                  <Label layoutX="135.0" layoutY="223.0" text="Descripcion:" textFill="WHITE">
                      <font>
                         <Font name="Microsoft Tai Le Bold" size="18.0" />
                      </font>

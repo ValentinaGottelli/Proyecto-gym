@@ -43,6 +43,8 @@ public class abmUsuariosAdmin implements Initializable{
     CheckBox professionalToggle;
     @FXML
     Button abmplanes;
+    @FXML
+    Label total;
 
     private ObservableList<Usuario> list = FXCollections.observableArrayList();
 
@@ -164,6 +166,7 @@ public class abmUsuariosAdmin implements Initializable{
         }
     }
 
+    static private final String GETCANTUSERS = "select count(*) from users";
     static private final String GETUSERS = "select idusers,username,profesional from users";
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -172,6 +175,10 @@ public class abmUsuariosAdmin implements Initializable{
         try {
             Statement stmt = connectDb.createStatement();
             ResultSet set = stmt.executeQuery(GETUSERS);
+            Statement cant = connectDb.createStatement();
+            ResultSet cantu = cant.executeQuery(GETCANTUSERS);
+            if (cantu.next())
+                total.setText(String.valueOf(cantu.getInt(1)));
             while(set.next()) {
                 String role = set.getBoolean(3) ? "Profesional" : "Cliente";
                 if(set.getInt(1) == 1) role = "Admin";

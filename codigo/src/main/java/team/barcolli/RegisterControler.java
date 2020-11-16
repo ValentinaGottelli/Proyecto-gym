@@ -48,6 +48,10 @@ public class RegisterControler implements Initializable {
     private Button usersABM;
     @FXML
     private Button logout;
+    @FXML
+    Button usr;
+    @FXML
+    Button plan;
 
 
     public void registerButtonOnAction(ActionEvent event){
@@ -73,6 +77,32 @@ public class RegisterControler implements Initializable {
         Parent abmview = FXMLLoader.load(getClass().getResource("loginLindo.fxml"));
         Scene abmscene = new Scene(abmview);
         logout.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent actionEvent) {
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(abmscene);
+                window.show();
+            }
+        });
+    }
+
+    public void ABMPLANES(ActionEvent event) throws IOException {
+        Parent abmview = FXMLLoader.load(getClass().getResource("batidosABM.fxml"));
+        Scene abmscene = new Scene(abmview);
+        plan.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent actionEvent) {
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(abmscene);
+                window.show();
+            }
+        });
+    }
+
+    public void abmusers(ActionEvent event) throws IOException {
+        Parent abmview = FXMLLoader.load(getClass().getResource("abm.fxml"));
+        Scene abmscene = new Scene(abmview);
+        usr.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent actionEvent) {
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

@@ -98,6 +98,7 @@ public class BatidosABM implements Initializable{
     }
 
     static private final String ELIMINATECOMIDA = "delete from planesalimenticios where idplan = ?";
+    static private final String UPDATECLIENTES = "update clientes set planesalimenticios_idplanes = null where planesalimenticios_idplanes = ?";
     public void onDeletePlan(ActionEvent event) {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDb = connectNow.getConnection();
@@ -107,9 +108,12 @@ public class BatidosABM implements Initializable{
 
 
         try {
-            PreparedStatement clientStmt = connectDb.prepareStatement(ELIMINATECOMIDA);
+            PreparedStatement clientStmt = connectDb.prepareStatement(UPDATECLIENTES);
+            PreparedStatement comidaStmt= connectDb.prepareStatement(ELIMINATECOMIDA);
             clientStmt.setInt(1, idcomida);
+            comidaStmt.setInt(1,idcomida);
             clientStmt.executeUpdate();
+            comidaStmt.executeUpdate();
             if(clientStmt.executeUpdate() > 0) {
                 list.removeIf(name -> Integer.parseInt(name.id) == idcomida);
             }
